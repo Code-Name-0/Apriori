@@ -1,58 +1,93 @@
-"""
-    this the implementation of the apriori Algorithm
-"""
+from itertools import chain, combinations
 
-"""
-    pseudo code
-"""
+class Aprio:
 
-"""
-    L[1] = {frequent 1-itemsets};
-    for (k=2; L[k-1] != 0; k ++) do begin
-        // perform self-joining
-        C[k] = getUnion(L[k-1])
-        // remove pruned supersets
-        C[k] = pruning(C[k])
-        // get itemsets that satisfy minSup
-        L[k] = getAboveMinSup(C[k], minSup)
-    end
-    Answer = Lk (union) 
-"""
+    def __init__(self, dataset, min_support, min_confidence):
+        self.transactions = self.list_from_dataframe(dataset)
+        self.item_sets = self.generate_item_sets()
+        self.min_support = min_support
+        self.min_confidence = min_confidence
+        pass
 
-from utils import *
-from collections import Counter, defaultdict
-
-def aprio(dataset, minSup, minConf):
+    """
+        input: transactions in form of a dataframe
+        output: a 2-D list of transactions [[item1, item2...], [item1, item3...]]
+    """
+    def list_from_dataframe(self, dataset):
+        list_ = []
+        for index in range(dataset.shape[0]):
+            row = dataset.iloc[index].dropna()
+            list_.append(list(row.values))
+        return list_
     
-    C1ItemSet = get_items(dataset)
+    """
+        needed data: 2-D list of transactions
+        output: a list of all items in all transactions 
+    """
+    def generate_item_sets(self):
+        return [frozenset([item]) for transaction in self.transactions for item in transaction]
     
-    globalFreqItemSet = dict()
-    
-    globalItemSetWithSup = defaultdict(int)
 
-    item_counts = Counter(dataset.values.flatten().astype(str))
-
-    L1ItemSet = above_min_supp(C1ItemSet, item_counts, minSup, globalItemSetWithSup)
-
-    currentLSet = L1ItemSet
-
-    k = 2
-
-    # Calculating frequent item set
-    while(currentLSet):
+    """
+        removes items that does not verify the minimum support condition
+    """
+    def prune_min_supp(self, candidate_counts):
+        return {itemset for itemset, count in candidate_counts.items() if count >= self.min_support}
         
-        globalFreqItemSet[k-1] = currentLSet
+
+    def prune_subsets(self,candidates, prev_frequent_itemsets):
+        pruned_candidates = set()
+        for candidate in candidates:
+            is_valid = True
+            subsets = combinations(candidate, len(candidate) - 1)
+            for subset in subsets:
+                if frozenset(subset) not in prev_frequent_itemsets:
+                    is_valid = False
+                    break
+            if is_valid:
+                pruned_candidates.add(candidate)
+        return pruned_candidates
+
+
+    def generate_next_candidates_set(prev_candidates, k):
+        candidates = set()
+        for itemset1 in prev_candidates:
+            for itemset2 in prev_candidates:
+                union_set = itemset1.union(itemset2)
+                if len(union_set) == k:
+                    candidates.add(union_set)
+        return candidates
+
+
+    """
+        needed data: 2-D list of transactions
+        output: list of union(F_k), frequent items in eatch iteration 
+    """
+    def get_frequent_itemsets(self):
+        itemsets = self.item_sets.copy()
+        frequent_itemsets = []
         
-        candidateSet = union(currentLSet, k)
-        # Perform subset testing and remove pruned supersets
-        candidateSet = prun(candidateSet, currentLSet, k-1)
-        # Scanning itemSet for counting support
-        currentLSet = above_min_supp(candidateSet, item_counts, minSup, globalItemSetWithSup)
-        k += 1
+        k = 2
 
+        while itemsets:
 
-    #rules = associationRule(globalFreqItemSet, globalItemSetWithSup, minConf)
-    #rules.sort(key=lambda x: x[2])
-
-    return globalFreqItemSet#, rules
-
+            candidate_counts = {}
+            for transaction in self.transactions:
+                for candidate in itemsets:
+                    if candidate.issubset(transaction):
+                        candidate_counts[candidate] = candidate_counts.get(candidate, 0) + 1
+            
+            # Prune candidates that do not meet the minimum support
+            frequent_itemsets_k = self.prune_min_supp(candidate_counts)
+            
+            # Generate candidates for the next iteration
+            candidates_k = self.generate_next_candidates_set(frequent_itemsets_k, k)
+            
+            # Prune candidates using the Apriori property
+            
+            
+            frequent_itemsets.extend(frequent_itemsets_k)
+            itemsets = candidates_k
+            k += 1
+        
+        return frequent_itemsets

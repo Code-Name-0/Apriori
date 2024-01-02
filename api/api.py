@@ -28,9 +28,9 @@ class Body(BaseModel):
 
 @app.get("/dummy_get")
 def hello(name: str):
-  return {'Hello ' + name + '!'}
+  return {"Hello " + name + ", Free Palestine! 🇵🇸🇵🇸🇵🇸🇵🇸🇵🇸"}
 
 
 @app.post("/dummy_post")
 def send_here(body: Body):
-   return "Hello " + body.name + ", Free Palestine! 🇵🇸🇵🇸🇵🇸🇵🇸🇵🇸"
+   return {"Hello " + body.name + ", Free Palestine! 🇵🇸🇵🇸🇵🇸🇵🇸🇵🇸"}
