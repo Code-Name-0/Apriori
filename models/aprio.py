@@ -1,13 +1,23 @@
-from itertools import chain, combinations
+from itertools import combinations
 
 class Aprio:
 
     def __init__(self, dataset, min_support, min_confidence):
-        self.transactions = self.list_from_dataframe(dataset)
-        self.item_sets = self.generate_item_sets()
         self.min_support = min_support
         self.min_confidence = min_confidence
-        pass
+        self.transactions = self.list_from_dataframe(dataset)
+        self.item_sets = self.generate_item_sets()
+        self.frequent_items = self.get_frequent_itemsets()
+        self.items_count = self.get_items_count()
+        self.rules = self.generate_rules(self.frequent_items, self.min_confidence)
+        
+    def get_items_count(self):
+        items_count = {}
+        for transaction in self.transactions:
+            for itemset in self.frequent_items:
+                if itemset.issubset(transaction):
+                    items_count[itemset] = items_count.get(itemset, 0) + 1
+        return items_count
 
     """
         input: transactions in form of a dataframe
@@ -49,7 +59,7 @@ class Aprio:
         return pruned_candidates
 
 
-    def generate_next_candidates_set(prev_candidates, k):
+    def generate_next_candidates_set(self, prev_candidates, k):
         candidates = set()
         for itemset1 in prev_candidates:
             for itemset2 in prev_candidates:
@@ -64,6 +74,7 @@ class Aprio:
         output: list of union(F_k), frequent items in eatch iteration 
     """
     def get_frequent_itemsets(self):
+
         itemsets = self.item_sets.copy()
         frequent_itemsets = []
         
@@ -77,17 +88,39 @@ class Aprio:
                     if candidate.issubset(transaction):
                         candidate_counts[candidate] = candidate_counts.get(candidate, 0) + 1
             
-            # Prune candidates that do not meet the minimum support
             frequent_itemsets_k = self.prune_min_supp(candidate_counts)
             
-            # Generate candidates for the next iteration
             candidates_k = self.generate_next_candidates_set(frequent_itemsets_k, k)
             
-            # Prune candidates using the Apriori property
-            
+            candidates_k = self.prune_subsets(candidates_k, frequent_itemsets_k)
             
             frequent_itemsets.extend(frequent_itemsets_k)
+
             itemsets = candidates_k
+            
             k += 1
         
         return frequent_itemsets
+
+    def calculate_confidence(self, itemset, antecedent):
+        return self.items_count[itemset] / self.items_count[antecedent]
+
+    def calculate_lift(self, confidence, consequent):
+        return confidence / self.calculate_support(consequent)
+
+    def calculate_support(self, itemset):
+        return self.items_count[itemset] / len(self.transactions)
+
+    def generate_rules(self, frequent_itemsets, min_confidence):
+        rules = []
+        for itemset in frequent_itemsets:
+            if len(itemset) > 1:
+                itemset_list = list(itemset)
+                for i in range(1, len(itemset)):
+                    antecedent = frozenset(itemset_list[:i])
+                    consequent = frozenset(itemset_list[i:])
+                    confidence = self.calculate_confidence(itemset, antecedent)
+                    lift = self.calculate_lift(confidence, consequent)
+                    if confidence >= min_confidence:
+                        rules.append({"antecedent": list(antecedent), "consequent": list(consequent), "confidence": confidence, "lift": lift})
+        return rules

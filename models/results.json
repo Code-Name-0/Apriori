@@ -1,0 +1,47 @@
+[
+  {
+    "antecedent": [
+      "3D DOG PICTURE PLAYING CARDS"
+    ],
+    "consequent": [
+      "AIRLINE BAG VINTAGE JET SET BROWN"
+    ],
+    "lift": 8.333333333333334
+  },
+  {
+    "antecedent": [
+      "72 SWEETHEART FAIRY CAKE CASES"
+    ],
+    "consequent": [
+      "60 TEATIME FAIRY CAKE CASES"
+    ],
+    "lift": 8.333333333333334
+  },
+  {
+    "antecedent": [
+      "ALARM CLOCK BAKELIKE RED "
+    ],
+    "consequent": [
+      "ALARM CLOCK BAKELIKE GREEN"
+    ],
+    "lift": 7.142857142857142
+  },
+  {
+    "antecedent": [
+      "ALARM CLOCK BAKELIKE CHOCOLATE"
+    ],
+    "consequent": [
+      "ALARM CLOCK BAKELIKE RED "
+    ],
+    "lift": 7.142857142857142
+  },
+  {
+    "antecedent": [
+      "ROSES REGENCY TEACUP AND SAUCER "
+    ],
+    "consequent": [
+      "REGENCY CAKESTAND 3 TIER"
+    ],
+    "lift": 2.232142857142857
+  }
+]
