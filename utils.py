@@ -5,7 +5,6 @@ def map_rules(rules):
     mapping = open("../map_stockCode_item.json", "r").read()
     key = '90202A'
     index = mapping.find(key)
-    #print(mapping[index:].split('\n')[0].split(': ')[1][:-1])
     for rule in rules:
         ant = []
         for item in rule['antecedent']:
@@ -14,7 +13,7 @@ def map_rules(rules):
             pattern = r': "(.*?)"'
             match = re.search(pattern, text)
             if match:            
-                ant.append(match.group(1))
+                ant.append(match.group(1).strip())
 
         cons = []
         for item in rule['consequent']:
@@ -23,7 +22,7 @@ def map_rules(rules):
             pattern = r': "(.*?)"'
             match = re.search(pattern, text) 
             if match:
-                cons.append(match.group(1))
+                cons.append(match.group(1).strip())
            
 
         rule['antecedent'] = ant
@@ -39,13 +38,11 @@ def rules_to_json(rules, path):
     filtered_data = [filter_fields(item, ['antecedent', 'consequent', 'lift', 'confidence']) for item in rules]
 
     json_data = json.dumps(filtered_data, indent=2)
-    try:
-        with open(f'{path}/rules.json', 'w') as json_file:
-            json_file.write(json_data)
-            json_file.close()
+    with open(f'{path}/rules.json', 'w') as json_file:
+        json_file.write(json_data)
+        json_file.close()
         print("successfully wrote results.")
-    except Exception as e:
-        print(f"Error writing the file: {e}")
+    
 
 def rules_to_markdown(rules, path):
     rules_file = open(f'{path}/rules.md', 'w')
@@ -63,6 +60,32 @@ def rules_to_markdown(rules, path):
     rules_file.write(line)
 
     rules_file.close()
+
+def predict():
+    print("predicing")
+    pass
+
+def train():
+    ds_name = str(input(f"place the dataset inside the data folder and provide its name\n$>"))
+    num_samples = int(input(f"how many sample you want to use (0 for full dataset)?\n$>"))
+    return {"code": 2, "ds_name": ds_name, "num_samples": num_samples}
+    
+
+def quit_():
+    return {"code": 3}
+
+def router():
+    choice = int(input(f"1 - predict\n2 - train\n3 - Quit\n$>"))
+    choices = {1: predict, 2: train, 3: quit_()}
+
+
+    if choice in choices.keys():
+        return choices[choice]()
+    else:
+        return {"code": -1}
+
+
+
 
 """
     {'antecedent': ['22555'],

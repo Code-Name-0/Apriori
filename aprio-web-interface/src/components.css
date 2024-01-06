@@ -1,0 +1,238 @@
+.navbar{
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    width: 100%;
+}
+
+.navlink{
+    height: 2rem;
+    margin: 2rem;
+    color: white;
+    background-color: transparent;
+    border:none;
+    font-size: 1.5rem;
+}
+
+.navlink:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: all;
+    transition-duration: .2s;
+}
+
+.navlink-active{
+    text-decoration: underline;
+}
+
+.predict-container{
+    width: 100vw
+}
+.search-container{
+    /* height: 50%; */
+}
+
+.suggs-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 195px;
+}
+
+.suggs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    gap: .3rem
+}
+
+.sugg{
+    border-left: solid #545454 1px;
+    border-right: solid #545454 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all;
+    transition-duration: 0.3s;
+    display: flex;
+    justify-content: center;
+    max-height: 1.5rem;
+    align-items: center;
+    font-size: .7rem;
+}
+
+.sugg:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.suggs-btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.suggs-btns .prev-btn, .suggs-btns .next-btn{
+    height: fit-content;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border: solid  #545454 2px;
+    color: #545454;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all;
+    transition-duration: .3s;    
+}
+
+.suggs-btns .prev-btn:hover, .suggs-btns .next-btn:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    border: solid  #000000 2px;
+    color: #000000;
+}
+
+.basket-container{
+    /* border: solid black 2px; */
+    width: 48%;
+    height: 80vh;
+    padding: 10px;
+}
+
+.results-cintainer{
+    width: 50%;
+}
+
+.basket{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 195px;
+    gap: 0.3rem;
+    /* border: dotted red 3px; */
+    
+}
+
+.sampleProduct{
+    border: solid #545454 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    transition: all;
+    transition-duration: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 1.5rem;
+    font-size: .8rem;
+}
+
+.sampleProduct .remove{
+    width: 1rem;
+    height: 1rem;
+    border: solid #545454 1px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all;
+    transition-duration: .5s;
+}
+
+.sampleProduct .remove .line1, .line2{
+    width: 1px;
+    height: 1rem;
+    background-color: #545454;
+    position: absolute;
+    transition: all;
+    transition-duration: .5s;
+}
+
+.sampleProduct .remove .line1{
+    rotate: 45deg;
+}
+
+.sampleProduct .remove .line2{
+    rotate: -45deg;
+}
+
+.search{
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    padding: 2rem;
+    gap: 1rem
+}
+
+.add-btn{
+    width: 30%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .3rem;
+    padding-bottom: 0.3rem;
+    border: solid  #545454 2px;
+    color: #545454;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all;
+    transition-duration: .3s;
+}
+
+.add-btn:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.sampleProduct .remove:hover{
+    border-color: red;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.sampleProduct .remove:hover .line1{
+    rotate: -45deg;
+    background-color: red;
+    transform: scale(1.05);
+}
+
+.sampleProduct .remove:hover .line2{
+    rotate: 45deg;
+    background-color: red;
+    transform: scale(1.05);
+}
+
+.search-input{
+    padding: 1rem;
+    color: #545454;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: solid #545454 1px
+}
+
+
+.predict-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.results-container{
+    width: 45%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow-y: auto;
+    /* border : dotted red 3px */
+}
+
+
+.prediction-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

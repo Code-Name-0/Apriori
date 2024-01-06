@@ -55,7 +55,8 @@ def gen_transactions_csv(transactions, path):
 def map_stock_codes(dataset):
     mapping = []
     for code, row in dataset.groupby('StockCode'):
-        mapping.append([code, row["Description"].iloc[0]])
+        mapping.append([code, row["Description"].iloc[0].strip()])
+
     return mapping
 
 

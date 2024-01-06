@@ -1,169 +1,23 @@
 [
   {
     "antecedent": [
-      "RED RETROSPOT MINI CASES"
-    ],
-    "consequent": [],
-    "confidence": 0.625,
-    "lift": 1.644736842105263
-  },
-  {
-    "antecedent": [
-      "LUNCH BOX WITH CUTLERY RETROSPOT "
-    ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.7142857142857143,
-    "lift": 7.936507936507937
-  },
-  {
-    "antecedent": [
-      "ROSES REGENCY TEACUP AND SAUCER "
-    ],
-    "consequent": [
-      "REGENCY CAKESTAND 3 TIER"
-    ],
-    "confidence": 0.7,
-    "lift": 3.6842105263157894
-  },
-  {
-    "antecedent": [
-      "ALARM CLOCK BAKELIKE PINK"
-    ],
-    "consequent": [
       "ALARM CLOCK BAKELIKE GREEN"
     ],
-    "confidence": 0.8571428571428571,
-    "lift": 12.244897959183671
+    "consequent": [
+      "ALARM CLOCK BAKELIKE RED"
+    ],
+    "confidence": 1.0,
+    "lift": 10.0
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "PLASTERS IN TIN CIRCUS PARADE"
     ],
     "consequent": [
-      "DOLLY GIRL LUNCH BOX"
-    ],
-    "confidence": 0.8333333333333334,
-    "lift": 6.410256410256411
-  },
-  {
-    "antecedent": [
       "PLASTERS IN TIN STRONGMAN"
     ],
-    "consequent": [
-      "PLASTERS IN TIN CIRCUS PARADE "
-    ],
-    "confidence": 0.7142857142857143,
-    "lift": 11.904761904761905
-  },
-  {
-    "antecedent": [
-      "3D DOG PICTURE PLAYING CARDS"
-    ],
-    "consequent": [
-      "AIRLINE BAG VINTAGE JET SET BROWN"
-    ],
-    "confidence": 1.0,
-    "lift": 14.285714285714285
-  },
-  {
-    "antecedent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
-    ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.5384615384615384,
-    "lift": 5.982905982905983
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX "
-    ],
-    "consequent": [
-      "CIRCUS PARADE LUNCH BOX "
-    ],
-    "confidence": 0.5833333333333334,
-    "lift": 8.333333333333334
-  },
-  {
-    "antecedent": [
-      "DOLLY GIRL LUNCH BOX"
-    ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
-    ],
-    "confidence": 0.5384615384615384,
-    "lift": 4.1420118343195265
-  },
-  {
-    "antecedent": [
-      "ALARM CLOCK BAKELIKE CHOCOLATE"
-    ],
-    "consequent": [
-      "ALARM CLOCK BAKELIKE GREEN"
-    ],
-    "confidence": 0.8333333333333334,
-    "lift": 11.904761904761903
-  },
-  {
-    "antecedent": [
-      "ALARM CLOCK BAKELIKE CHOCOLATE"
-    ],
-    "consequent": [
-      "ALARM CLOCK BAKELIKE RED "
-    ],
-    "confidence": 1.0,
-    "lift": 10.0
-  },
-  {
-    "antecedent": [
-      "60 TEATIME FAIRY CAKE CASES"
-    ],
-    "consequent": [
-      "72 SWEETHEART FAIRY CAKE CASES"
-    ],
-    "confidence": 0.75,
-    "lift": 12.5
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX "
-    ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
-    ],
-    "confidence": 0.5833333333333334,
-    "lift": 4.487179487179487
-  },
-  {
-    "antecedent": [
-      "AIRLINE BAG VINTAGE JET SET BROWN"
-    ],
-    "consequent": [
-      "ALARM CLOCK BAKELIKE RED "
-    ],
-    "confidence": 0.7142857142857143,
-    "lift": 7.142857142857142
-  },
-  {
-    "antecedent": [
-      "ALARM CLOCK BAKELIKE GREEN"
-    ],
-    "consequent": [
-      "ALARM CLOCK BAKELIKE RED "
-    ],
-    "confidence": 1.0,
-    "lift": 10.0
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX "
-    ],
-    "consequent": [],
-    "confidence": 0.75,
-    "lift": 1.9736842105263157
+    "confidence": 0.8333,
+    "lift": 11.9043
   },
   {
     "antecedent": [
@@ -177,66 +31,277 @@
   },
   {
     "antecedent": [
-      "WOODEN OWLS LIGHT GARLAND "
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
     "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.5385,
+    "lift": 4.1423
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "LUNCH BOX WITH CUTLERY RETROSPOT"
+    ],
+    "confidence": 0.5556,
+    "lift": 7.9371
+  },
+  {
+    "antecedent": [
+      "60 TEATIME FAIRY CAKE CASES"
+    ],
+    "consequent": [
+      "72 SWEETHEART FAIRY CAKE CASES"
+    ],
+    "confidence": 0.75,
+    "lift": 12.5
+  },
+  {
+    "antecedent": [
+      "CIRCUS PARADE LUNCH BOX"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.8571,
+    "lift": 6.5931
+  },
+  {
+    "antecedent": [
+      "ALARM CLOCK BAKELIKE GREEN"
+    ],
+    "consequent": [
+      "ALARM CLOCK BAKELIKE PINK"
+    ],
+    "confidence": 0.8571,
+    "lift": 12.2443
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.6667,
+    "lift": 5.1285
+  },
+  {
+    "antecedent": [
+      "PLASTERS IN TIN SPACEBOY"
+    ],
+    "consequent": [],
+    "confidence": 0.8333,
+    "lift": 2.1929
+  },
+  {
+    "antecedent": [
+      "LUNCH BOX I LOVE LONDON"
+    ],
+    "consequent": [],
+    "confidence": 0.7143,
+    "lift": 1.8797
+  },
+  {
+    "antecedent": [
+      "LUNCH BOX I LOVE LONDON"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.7143,
+    "lift": 5.4946
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [],
+    "confidence": 0.75,
+    "lift": 1.9737
+  },
+  {
+    "antecedent": [
       "LIGHT GARLAND BUTTERFILES PINK"
+    ],
+    "consequent": [
+      "WOODEN OWLS LIGHT GARLAND"
     ],
     "confidence": 1.0,
     "lift": 20.0
   },
   {
     "antecedent": [
-      "ALARM CLOCK BAKELIKE PINK"
+      "AIRLINE BAG VINTAGE JET SET BROWN"
     ],
     "consequent": [
-      "ALARM CLOCK BAKELIKE RED "
+      "3D DOG PICTURE PLAYING CARDS"
     ],
-    "confidence": 0.8571428571428571,
-    "lift": 8.571428571428571
+    "confidence": 0.7143,
+    "lift": 14.286
   },
   {
     "antecedent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 0.7778,
+    "lift": 5.9831
+  },
+  {
+    "antecedent": [
+      "ALARM CLOCK BAKELIKE CHOCOLATE"
+    ],
+    "consequent": [
+      "ALARM CLOCK BAKELIKE GREEN"
+    ],
+    "confidence": 0.8333,
+    "lift": 11.9043
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 0.5833,
+    "lift": 4.4869
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
     ],
     "consequent": [
       "DOLLY GIRL LUNCH BOX"
     ],
-    "confidence": 0.75,
-    "lift": 5.769230769230769
+    "confidence": 0.8333,
+    "lift": 6.41
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "confidence": 0.5556,
+    "lift": 4.63
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [],
+    "confidence": 0.8889,
+    "lift": 2.3392
   },
   {
     "antecedent": [
       "ALARM CLOCK BAKELIKE PINK"
     ],
     "consequent": [
-      "ALARM CLOCK BAKELIKE GREEN",
-      "ALARM CLOCK BAKELIKE RED "
+      "ALARM CLOCK BAKELIKE RED"
     ],
-    "confidence": 0.8571428571428571,
-    "lift": 12.244897959183671
+    "confidence": 0.8571,
+    "lift": 8.571
   },
   {
     "antecedent": [
-      "ALARM CLOCK BAKELIKE PINK",
-      "ALARM CLOCK BAKELIKE GREEN"
+      "AIRLINE BAG VINTAGE JET SET BROWN"
     ],
     "consequent": [
-      "ALARM CLOCK BAKELIKE RED "
+      "ALARM CLOCK BAKELIKE RED"
+    ],
+    "confidence": 0.7143,
+    "lift": 7.143
+  },
+  {
+    "antecedent": [
+      "ALARM CLOCK BAKELIKE CHOCOLATE"
+    ],
+    "consequent": [
+      "ALARM CLOCK BAKELIKE RED"
     ],
     "confidence": 1.0,
     "lift": 10.0
   },
   {
     "antecedent": [
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "SPACEBOY LUNCH BOX"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
+      "CIRCUS PARADE LUNCH BOX"
     ],
-    "confidence": 0.7142857142857143,
-    "lift": 7.936507936507937
+    "confidence": 0.5833,
+    "lift": 8.3329
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 0.6667,
+    "lift": 8.3337
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 0.75,
+    "lift": 5.7692
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 0.5,
+    "lift": 6.25
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 0.6667,
+    "lift": 5.1285
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 0.5556,
+    "lift": 7.9371
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 1.0,
+    "lift": 7.6923
   },
   {
     "antecedent": [
@@ -244,10 +309,10 @@
     ],
     "consequent": [
       "ALARM CLOCK BAKELIKE GREEN",
-      "ALARM CLOCK BAKELIKE RED "
+      "ALARM CLOCK BAKELIKE RED"
     ],
-    "confidence": 0.8333333333333334,
-    "lift": 11.904761904761903
+    "confidence": 0.8333,
+    "lift": 11.9043
   },
   {
     "antecedent": [
@@ -255,78 +320,185 @@
       "ALARM CLOCK BAKELIKE GREEN"
     ],
     "consequent": [
-      "ALARM CLOCK BAKELIKE RED "
+      "ALARM CLOCK BAKELIKE RED"
     ],
     "confidence": 1.0,
     "lift": 10.0
   },
   {
     "antecedent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
+      "CIRCUS PARADE LUNCH BOX"
     ],
-    "confidence": 0.75,
-    "lift": 8.333333333333334
+    "confidence": 0.7143,
+    "lift": 10.2043
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "SPACEBOY LUNCH BOX"
     ],
     "consequent": [
-      "CIRCUS PARADE LUNCH BOX "
+      "CIRCUS PARADE LUNCH BOX"
     ],
-    "confidence": 0.5555555555555556,
-    "lift": 7.936507936507936
+    "confidence": 0.5556,
+    "lift": 7.9371
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
     ],
     "consequent": [
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
-    ],
-    "confidence": 0.5833333333333334,
-    "lift": 8.333333333333334
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX ",
+      "SPACEBOY LUNCH BOX",
       "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
-    ],
-    "confidence": 0.7,
-    "lift": 5.384615384615384
+    "confidence": 0.5556,
+    "lift": 5.556
   },
   {
     "antecedent": [
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX"
     ],
     "consequent": [
-      "CIRCUS PARADE LUNCH BOX "
+      "DOLLY GIRL LUNCH BOX"
     ],
-    "confidence": 0.7142857142857143,
-    "lift": 10.204081632653061
+    "confidence": 1.0,
+    "lift": 7.6923
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX ",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
     ],
     "consequent": [
-      "CIRCUS PARADE LUNCH BOX "
+      "SPACEBOY LUNCH BOX"
     ],
-    "confidence": 0.7142857142857143,
-    "lift": 10.204081632653061
+    "confidence": 0.5556,
+    "lift": 6.1733
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [],
+    "confidence": 1.0,
+    "lift": 2.6316
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "CIRCUS PARADE LUNCH BOX",
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.5,
+    "lift": 8.3333
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX",
+      "CIRCUS PARADE LUNCH BOX"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.8571,
+    "lift": 6.5931
+  },
+  {
+    "antecedent": [
+      "ALARM CLOCK BAKELIKE PINK"
+    ],
+    "consequent": [
+      "ALARM CLOCK BAKELIKE GREEN",
+      "ALARM CLOCK BAKELIKE RED"
+    ],
+    "confidence": 0.8571,
+    "lift": 12.2443
+  },
+  {
+    "antecedent": [
+      "ALARM CLOCK BAKELIKE GREEN",
+      "ALARM CLOCK BAKELIKE PINK"
+    ],
+    "consequent": [
+      "ALARM CLOCK BAKELIKE RED"
+    ],
+    "confidence": 1.0,
+    "lift": 10.0
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.5556,
+    "lift": 7.9371
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.7143,
+    "lift": 5.4946
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.75,
+    "lift": 5.7692
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
+      "CIRCUS PARADE LUNCH BOX"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 1.0,
+    "lift": 7.6923
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.5833,
+    "lift": 8.3329
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 1.0,
+    "lift": 7.6923
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
     ],
     "consequent": [
       "DOLLY GIRL LUNCH BOX"
@@ -336,311 +508,302 @@
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "SPACEBOY LUNCH BOX"
     ],
     "consequent": [
       "DOLLY GIRL LUNCH BOX"
     ],
     "confidence": 1.0,
-    "lift": 7.692307692307692
+    "lift": 7.6923
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX ",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "CIRCUS PARADE LUNCH BOX"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.7142857142857143,
-    "lift": 7.936507936507937
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX ",
       "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.5,
-    "lift": 5.555555555555555
+    "confidence": 1.0,
+    "lift": 7.6923
   },
   {
     "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
       "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "CIRCUS PARADE LUNCH BOX "
-    ],
-    "confidence": 0.5,
-    "lift": 7.142857142857142
+    "confidence": 0.6667,
+    "lift": 6.667
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
-    ],
-    "confidence": 0.5,
-    "lift": 6.25
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX "
-    ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
-    ],
-    "confidence": 0.6666666666666666,
-    "lift": 5.128205128205128
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX "
-    ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.5555555555555556,
-    "lift": 6.17283950617284
-  },
-  {
-    "antecedent": [
       "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.6,
-    "lift": 6.666666666666667
+    "confidence": 0.75,
+    "lift": 5.7692
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
     ],
     "consequent": [
-      "DOLLY GIRL LUNCH BOX",
-      "CIRCUS PARADE LUNCH BOX "
-    ],
-    "confidence": 0.5,
-    "lift": 8.333333333333334
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX ",
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
       "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "CIRCUS PARADE LUNCH BOX "
-    ],
-    "confidence": 0.6,
-    "lift": 8.571428571428571
+    "confidence": 0.5556,
+    "lift": 7.9371
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX"
     ],
     "consequent": [
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.5555555555555556,
-    "lift": 9.25925925925926
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX ",
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
       "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.5555555555555556,
-    "lift": 6.17283950617284
+    "confidence": 1.0,
+    "lift": 14.2857
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND ",
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.5555555555555556,
-    "lift": 7.936507936507936
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX ",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
-    ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.8333333333333334,
-    "lift": 9.25925925925926
-  },
-  {
-    "antecedent": [
       "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND ",
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.5,
-    "lift": 7.142857142857142
+    "confidence": 1.0,
+    "lift": 7.6923
   },
   {
     "antecedent": [
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.8333333333333334,
-    "lift": 9.25925925925926
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX "
-    ],
-    "consequent": [
-      "DOLLY GIRL LUNCH BOX",
-      "CIRCUS PARADE LUNCH BOX "
-    ],
-    "confidence": 0.5555555555555556,
-    "lift": 9.25925925925926
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX ",
+      "CIRCUS PARADE LUNCH BOX",
       "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "CIRCUS PARADE LUNCH BOX "
-    ],
-    "confidence": 0.5555555555555556,
-    "lift": 7.936507936507936
+    "confidence": 0.7143,
+    "lift": 11.905
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX ",
-      "DOLLY GIRL LUNCH BOX"
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
+      "CIRCUS PARADE LUNCH BOX"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND ",
-      "CIRCUS PARADE LUNCH BOX "
+      "DOLLY GIRL LUNCH BOX"
     ],
-    "confidence": 0.5,
+    "confidence": 1.0,
+    "lift": 7.6923
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "CIRCUS PARADE LUNCH BOX",
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.5556,
+    "lift": 9.26
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX",
+      "CIRCUS PARADE LUNCH BOX"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 1.0,
+    "lift": 7.6923
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "SPACEBOY LUNCH BOX",
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.5556,
+    "lift": 6.1733
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 1.0,
     "lift": 10.0
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX ",
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX"
     ],
     "consequent": [
-      "CIRCUS PARADE LUNCH BOX "
+      "DOLLY GIRL LUNCH BOX"
     ],
-    "confidence": 0.7142857142857143,
-    "lift": 10.204081632653061
+    "confidence": 1.0,
+    "lift": 7.6923
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX ",
-      "DOLLY GIRL LUNCH BOX"
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND ",
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.5556,
+    "lift": 9.26
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.7143,
+    "lift": 7.143
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "consequent": [
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.8333,
+    "lift": 6.41
+  },
+  {
+    "antecedent": [
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
+      "DOLLY GIRL LUNCH BOX"
     ],
     "confidence": 0.5,
-    "lift": 7.142857142857142
+    "lift": 8.3333
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX ",
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
+      "DOLLY GIRL LUNCH BOX"
     ],
-    "confidence": 0.7142857142857143,
-    "lift": 7.936507936507937
+    "confidence": 0.8571,
+    "lift": 8.571
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
     "consequent": [
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "DOLLY GIRL LUNCH BOX"
     ],
-    "confidence": 0.5,
-    "lift": 8.333333333333334
+    "confidence": 1.0,
+    "lift": 7.6923
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
     ],
     "consequent": [
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
-    "confidence": 0.6666666666666666,
-    "lift": 9.523809523809522
+    "confidence": 0.5556,
+    "lift": 9.26
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX ",
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX"
+    ],
+    "consequent": [
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "confidence": 1.0,
+    "lift": 12.5
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
+    ],
+    "consequent": [],
+    "confidence": 1.0,
+    "lift": 2.6316
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS"
+    ],
+    "consequent": [
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
+      "DOLLY GIRL LUNCH BOX"
+    ],
+    "confidence": 0.5556,
+    "lift": 9.26
+  },
+  {
+    "antecedent": [
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
       "DOLLY GIRL LUNCH BOX"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
-    "confidence": 0.6666666666666666,
-    "lift": 5.128205128205128
+    "confidence": 0.8333,
+    "lift": 13.8883
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX "
-    ],
-    "consequent": [
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND ",
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.5555555555555556,
-    "lift": 11.11111111111111
-  },
-  {
-    "antecedent": [
-      "SPACEBOY LUNCH BOX ",
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX",
       "DOLLY GIRL LUNCH BOX"
     ],
     "consequent": [
-      "ROUND SNACK BOXES SET OF4 WOODLAND ",
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
+      "ROUND SNACK BOXES SET OF4 WOODLAND"
     ],
-    "confidence": 0.5555555555555556,
-    "lift": 7.936507936507936
+    "confidence": 1.0,
+    "lift": 12.5
   },
   {
     "antecedent": [
-      "SPACEBOY LUNCH BOX ",
-      "DOLLY GIRL LUNCH BOX",
-      "ROUND SNACK BOXES SET OF4 WOODLAND "
+      "ROUND SNACK BOXES SET OF 4 FRUITS",
+      "SPACEBOY LUNCH BOX",
+      "ROUND SNACK BOXES SET OF4 WOODLAND",
+      "DOLLY GIRL LUNCH BOX"
     ],
-    "consequent": [
-      "ROUND SNACK BOXES SET OF 4 FRUITS "
-    ],
-    "confidence": 0.8333333333333334,
-    "lift": 9.25925925925926
+    "consequent": [],
+    "confidence": 1.0,
+    "lift": 2.6316
   }
 ]

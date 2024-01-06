@@ -103,15 +103,16 @@ class Aprio:
         return frequent_itemsets
 
     def calculate_confidence(self, itemset, antecedent):
-        return self.items_count[itemset] / self.items_count[antecedent]
+        return float("%.4f" % (self.items_count[itemset] / self.items_count[antecedent])) 
 
     def calculate_lift(self, confidence, consequent):
-        return confidence / self.calculate_support(consequent)
+        return float("%.4f" % (confidence / self.calculate_support(consequent)))
 
     def calculate_support(self, itemset):
-        return self.items_count[itemset] / len(self.transactions)
+        return float("%.4f" %(self.items_count[itemset] / len(self.transactions)))
 
     def generate_rules(self, frequent_itemsets, min_confidence):
+
         rules = []
         for itemset in frequent_itemsets:
             if len(itemset) > 1:
@@ -124,3 +125,5 @@ class Aprio:
                     if confidence >= min_confidence:
                         rules.append({"antecedent": list(antecedent), "consequent": list(consequent), "confidence": confidence, "lift": lift})
         return rules
+    
+    
