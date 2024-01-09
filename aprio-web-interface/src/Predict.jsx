@@ -51,7 +51,6 @@ const Predict = () => {
     }
   }
 
-  console.log(predictions)
 
     return ( 
         <div className="predict-container" >

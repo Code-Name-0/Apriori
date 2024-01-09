@@ -1,13 +1,13 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 import json
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",
-]
+
+origins = ["http://localhost:3000"]
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -23,6 +23,9 @@ class Body(BaseModel):
 
 class Sample(BaseModel):
     sample: list
+
+class NewDS(BaseModel):
+    dataset: UploadFile = File(...)
 
 @app.get("/dummy_get")
 def hello(name: str):
@@ -56,7 +59,7 @@ def train():
     ds_name = str(input(f"place the dataset inside the data folder and provide its name\n$>"))
     num_samples = int(input(f"how many sample you want to use (0 for full dataset)?\n$>"))
     return {"code": 2, "ds_name": ds_name, "num_samples": num_samples}
-    
+
 
 def quit_():
     return {"code": 3}
@@ -70,6 +73,15 @@ def router():
         return choices[choice]()
     else:
         return {"code": -1}
+    
+
+
+
+@app.post("/NewDS")
+async def create_upload_file(file: UploadFile = File(...)):
+    print(f"Received file: {file.filename}, size: {file.file._file._st_size} bytes")
+    return {"filename": file.filename, "size": file.file._file._st_size}
+
 
 
 @app.get("/get_products")
