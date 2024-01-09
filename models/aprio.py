@@ -12,6 +12,7 @@ class Aprio:
         self.rules = self.generate_rules(self.frequent_items, self.min_confidence)
         
     def get_items_count(self):
+        print("====> getting items' count")
         items_count = {}
         for transaction in self.transactions:
             for itemset in self.frequent_items:
@@ -24,6 +25,7 @@ class Aprio:
         output: a 2-D list of transactions [[item1, item2...], [item1, item3...]]
     """
     def list_from_dataframe(self, dataset):
+        print("====> getting list of transactions")
         list_ = []
         for index in range(dataset.shape[0]):
             row = dataset.iloc[index].dropna()
@@ -35,6 +37,7 @@ class Aprio:
         output: a list of all items in all transactions 
     """
     def generate_item_sets(self):
+        print("====> generating item sets")
         return [frozenset([item]) for transaction in self.transactions for item in transaction]
     
 
@@ -42,10 +45,12 @@ class Aprio:
         removes items that does not verify the minimum support condition
     """
     def prune_min_supp(self, candidate_counts):
-        return {itemset for itemset, count in candidate_counts.items() if count >= self.min_support}
+        print("====> pruning min support")
+        return {itemset for itemset, count in candidate_counts.items() if float("%.4f" % (count / len(self.item_sets))) * 100  >= self.min_support}
         
 
     def prune_subsets(self,candidates, prev_frequent_itemsets):
+        print("====> pruning")
         pruned_candidates = set()
         for candidate in candidates:
             is_valid = True
@@ -60,6 +65,7 @@ class Aprio:
 
 
     def generate_next_candidates_set(self, prev_candidates, k):
+        print("====> generating next condidates")
         candidates = set()
         for itemset1 in prev_candidates:
             for itemset2 in prev_candidates:
@@ -74,7 +80,7 @@ class Aprio:
         output: list of union(F_k), frequent items in eatch iteration 
     """
     def get_frequent_itemsets(self):
-
+        print("====> getting frequent items")
         itemsets = self.item_sets.copy()
         frequent_itemsets = []
         
@@ -112,7 +118,7 @@ class Aprio:
         return float("%.4f" %(self.items_count[itemset] / len(self.transactions)))
 
     def generate_rules(self, frequent_itemsets, min_confidence):
-
+        print("====> generating rulesl")
         rules = []
         for itemset in frequent_itemsets:
             if len(itemset) > 1:
@@ -123,7 +129,8 @@ class Aprio:
                     confidence = self.calculate_confidence(itemset, antecedent)
                     lift = self.calculate_lift(confidence, consequent)
                     if confidence >= min_confidence:
-                        rules.append({"antecedent": list(antecedent), "consequent": list(consequent), "confidence": confidence, "lift": lift})
+                        if len(list(antecedent)) > 0 and len(list(consequent) > 0):
+                            rules.append({"antecedent": list(antecedent), "consequent": list(consequent), "confidence": confidence, "lift": lift})
         return rules
     
     

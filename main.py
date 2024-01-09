@@ -17,14 +17,17 @@ def main():
 
 
 
-    print("running preprocessing...")
-    preprocessing('./data/original.xlsx')
+    # print("running preprocessing...")
+    # preprocessing('./data/original.xlsx', './data/transactions.csv', './data/map_stockCode_item.json', 1)
+
 
     print("loading transactions...")
     dataset = pd.read_csv('./data/transactions.csv')
 
     print("running apriori algorithm...")
-    aprio = Aprio(dataset[:100], 5, 0.5)
+    aprio = Aprio(dataset[:500], 0.1, 0.4)
+
+
 
     print("mapping to items...")
     rules = map_rules(aprio.rules)

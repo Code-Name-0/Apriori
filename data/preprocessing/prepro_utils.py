@@ -26,7 +26,7 @@ def get_transactions(dataset, time_interval):
             time = str(row['InvoiceDate']).split(' ')[1]
             hour = int(time[:2])
             minute = int(time[3:5])
-
+    
             if reference_time is None:
                 reference_time = {"h": hour, "m": minute}
 
@@ -48,8 +48,8 @@ def get_transactions(dataset, time_interval):
 
 def gen_transactions_csv(transactions, path):
     apriory_df = pd.DataFrame(transactions)
-    apriory_df.to_csv(f'{path}/transactions.csv', index=False)
-    print('writen to',f'{path}/transactions.csv')
+    apriory_df.to_csv(f'{path}', index=False)
+    print('writen to',f'{path}')
 
 
 def map_stock_codes(dataset):
@@ -63,7 +63,7 @@ def map_stock_codes(dataset):
 def map_to_json(mapping, path):
     mapping_dict = {code: item for code, item in mapping}
     json_result = json.dumps(mapping_dict, indent=2)
-    json_file = open(f'{path}/map_stockCode_item.json', 'w')
+    json_file = open(f'{path}', 'w')
     json_file.write(json_result)
     json_file.close()
 
