@@ -93,3 +93,30 @@ def router():
   'confidence': 0.7142857142857143,
   'lift': 11.904761904761905}
 """
+def index_matches(rule: dict, rules: list) -> list:
+    matching_indexes = []
+    for matching_rule in rules:
+        if (rule['antecedent'] == matching_rule['antecedent']) \
+            and (rule['consequent'] == matching_rule['consequent']):
+            matching_indexes.append(rules.index(matching_rule))
+    max = 0
+    for i in matching_indexes:
+        if rules[i]['lift'] > max:
+            max = rules[i]['lift']
+            highest_lift_index = i
+    matching_indexes.remove(highest_lift_index)
+    return matching_indexes
+
+
+def clean_rules_json(path: str) -> None:
+    with open(path, 'r') as rules_json_file:
+        rules = list(json.load(rules_json_file))
+        for rule in rules:
+            array_matched_rules = index_matches(rule=rule, rules=rules) 
+            if array_matched_rules:
+                for index in array_matched_rules:
+                    rules.pop(index)
+            elif len(rule['consequent']) == 0:
+                rules.remove(rule)
+        # TODO: add the code to save the reuslt to the file
+        return rules
