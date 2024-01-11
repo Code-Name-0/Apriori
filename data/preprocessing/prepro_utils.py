@@ -46,6 +46,34 @@ def get_transactions(dataset, time_interval):
         transactions.append(transaction)
     return transactions
 
+
+def get_anon_transactions(dataset, time_interval):
+    transactions = []
+    reference_time = None
+    transaction = []
+    for _, row in dataset[dataset['CustomerID'].isna()].iterrows():
+        # for _, row in customer_.iterrows():
+        time = str(row['InvoiceDate']).split(' ')[1]
+        hour = int(time[:2])
+        minute = int(time[3:5])
+
+        if reference_time is None:
+            reference_time = {"h": hour, "m": minute}
+        if hour == reference_time['h'] and (abs(minute - reference_time['m']) <= time_interval):
+            if len(transaction) == 50:
+                transactions.append(transaction)
+                transaction = [row['StockCode']]
+                reference_time = {"h": hour, "m": minute}
+            else:
+                transaction.append(row['StockCode'])
+        else:
+            transactions.append(transaction)
+            transaction = [row['StockCode']]
+            reference_time = {"h": hour, "m": minute}
+
+        transactions.append(transaction)
+    return transactions
+
 def gen_transactions_csv(transactions, path):
     apriory_df = pd.DataFrame(transactions)
     apriory_df.to_csv(f'{path}', index=False)

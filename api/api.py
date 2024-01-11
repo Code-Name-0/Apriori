@@ -37,21 +37,25 @@ def send_here(body: Body):
    return {"Hello " + body.name + ", Free Palestine! 🇵🇸🇵🇸🇵🇸🇵🇸🇵🇸"}
 
 
-
+import pandas as pd
 @app.post("/Predict")
 def predict(sample_body: Sample):
     rules_raw = open('../results/rules.json', 'r')
     rules = json.load(rules_raw)
 
-    sets = [rule["antecedent"] for rule in rules ]
+    sets = [rule["antecedent"].split(', ') for rule in rules ]
     results = []
     sample = sample_body.sample
+    
     for set in sets:
+        # if len(set) == 1:
+        #     print(len(set))
         if len(set) == len(sample):
             for product in sample:
-                print(product)
+                # print(product)
                 if (product in set) and not (rules[sets.index(set)] in results):   
                     results.append(rules[sets.index(set)])
+    print(results)
     return results
 
 
@@ -80,7 +84,7 @@ def router():
 @app.post("/NewDS")
 async def create_upload_file(file: UploadFile = File(...)):
     print(f"Received file: {file.filename}, size: {file.file._file._st_size} bytes")
-    return {"filename": file.filename, "size": file.file._file._st_size}
+    return {"filename": file.filename}
 
 
 

@@ -12,10 +12,12 @@ const Predict = () => {
 
     const  get_prediction = async (sample) => {
       console.log('getting prediction')
-      const prediction = await axios.post(api+"Predict", {sample: sample})
-      setPredictions(prediction.data.sort((a, b) => {return b.lift - a.lift} ))
+       axios.post(api+"Predict", {sample: sample}).then(response=> {
+        
+         setPredictions(response.data.sort((a, b) => {return b.lift - a.lift} ))
+       })
     }
-
+    console.log(predictions)
     const get_products = async () => {
         const response = await axios.get(api + "get_products");
         return response.data;
@@ -88,7 +90,7 @@ export default Predict;
 const Prediction = ({prediction}) => {
   return (
     <div className="prediction-container">
-      {prediction.consequent.map((cons, index) => {
+      {prediction.consequent.split(', ').map((cons, index) => {
         return <div key={index} className="pred">
           <div className="cons">
             {cons}
