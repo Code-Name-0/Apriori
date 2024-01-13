@@ -46,7 +46,7 @@ class Aprio:
     """
     def prune_min_supp(self, candidate_counts):
         print("====> pruning min support")
-        return {itemset for itemset, count in candidate_counts.items() if float("%.4f" % (count / len(self.item_sets))) * 100  >= self.min_support}
+        return {itemset for itemset, count in candidate_counts.items() if count  >= self.min_support}
         
 
     def prune_subsets(self,candidates, prev_frequent_itemsets):
@@ -118,7 +118,7 @@ class Aprio:
         return float("%.4f" %(self.items_count[itemset] / len(self.transactions)))
 
     def generate_rules(self, frequent_itemsets, min_confidence):
-        print("====> generating rulesl")
+        print("====> generating rules")
         rules = []
         for itemset in frequent_itemsets:
             if len(itemset) > 1:
@@ -129,7 +129,7 @@ class Aprio:
                     confidence = self.calculate_confidence(itemset, antecedent)
                     lift = self.calculate_lift(confidence, consequent)
                     if confidence >= min_confidence:
-                        if len(list(antecedent)) > 0 and len(list(consequent) > 0):
+                        if len(list(antecedent)) > 0 and len(list(consequent)) > 0:
                             rules.append({"antecedent": list(antecedent), "consequent": list(consequent), "confidence": confidence, "lift": lift})
         return rules
     

@@ -3,12 +3,16 @@ import UploadLogo from "./images/UploadLogo";
 import axios from "axios";
 import { api } from "./env";
 
+
+// TODO: Loading page while server is generating new set of rules
+const clientId = Math.floor(Math.random() * 100000) + 1;
 const NewDS = () => {
 
     const [stage, setStage] = useState("upload")
     const [file, setFile] = useState(null)
     const fileInputRef = useRef(null);
     const [error, setError] = useState(null)
+    const [status, setStatus] = useState('')
 
     const handleFileChange = (event) => {
         // Update the state with the selected file
@@ -22,6 +26,9 @@ const NewDS = () => {
       const accepted_formats = ['csv', 'xlsx']
       useEffect(()=>{
         if (file){
+
+            
+
             if(accepted_formats.includes(file.name.split('.')[1])){
                 setStage('submit')
             }else{
@@ -32,13 +39,47 @@ const NewDS = () => {
             }
         }
       }, [file])
+ 
 
-      const upload_file_to_server = async ()  => {
+      useEffect(() => {
+        if (stage === "processing") {
+
+            upload_file_to_server()
+        //   const CHUNK_SIZE = 1024*8; // Adjust the chunk size as needed
+        //   const reader = new FileReader();
+
+        }
+    }, [stage, file]);
+
+    const open_sock = async () => {
+
+        console.log("connecting to websocket");
+        const ws = new WebSocket(`ws://localhost:8000/train_websocket`);
+
+        ws.onopen = () => {
+            console.log("WebSocket is open now.");
+            console.log('sending start signal to socket in 2 seconds');
+            setTimeout(() => {
+                ws.send('start')
+            }, 2000);
+        };
+
+        ws.onmessage = (event) => {
+            // Handle acknowledgment from the server
+            console.log('Status:', event.data);
+            setStatus(event.data)
+        };
+
+        ws.onclose = (event) => {
+            console.log('WebSocket closed:', event.code, event.reason);
+        };
+    }
+
+    const upload_file_to_server = async ()  => {
         const formData = new FormData();
   formData.append('file', file);
   try {
-      console.log('uploading file')
-      console.log(formData['file'])
+
     const response = await axios.post(api+'NewDS', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -46,6 +87,10 @@ const NewDS = () => {
     });
 
     console.log('File uploaded successfully:', response.data);
+    if(response.data.valid){
+        console.log("okay, open socket now")
+        open_sock()
+    }
   } catch (error) {
     if (error.response) {
       // The request was made and the server responded with a status code
@@ -89,17 +134,27 @@ const NewDS = () => {
                 </div>
             }
             {
-                !error && stage === "submit" &&
+                !error && stage === "submit"  &&
                 <div className="submit-container">
                     <div className="info">
                         <div> Filename: <b>{file.name}</b></div>
-                        <div>File Size: <b>{(file.size / (1024 * 1024)).toFixed(4)} mb</b></div>
+                        <div>File Size: <b>{(file.size / (1024)).toFixed(4)} mb</b></div>
                     </div>
                     <div className="submit">
-                        <button className="submit-btn" onClick={upload_file_to_server} >
+                        <button className="submit-btn" onClick={
+                          ()=>{
+                            setStage("processing")
+                          }} >
                             Submit File
                         </button>
                     </div>
+                </div>
+            }
+
+            {
+                !error && stage === 'processing' &&
+                <div className="status">
+                    {status}
                 </div>
             }
         </div>

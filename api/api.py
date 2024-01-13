@@ -1,8 +1,10 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, WebSocket, UploadFile, File
 import json
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-
+import io
+from main import main
+from data.preprocessing import preproccessing
 app = FastAPI()
 
 
@@ -40,7 +42,7 @@ def send_here(body: Body):
 import pandas as pd
 @app.post("/Predict")
 def predict(sample_body: Sample):
-    rules_raw = open('../results/rules.json', 'r')
+    rules_raw = open('./results/rules.json', 'r')
     rules = json.load(rules_raw)
 
     sets = [rule["antecedent"].split(', ') for rule in rules ]
@@ -78,19 +80,70 @@ def router():
     else:
         return {"code": -1}
     
+import asyncio
 
 
+
+processing_status = {}
+@app.websocket("/train_websocket")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    try:
+        for status in main( "./data/original.csv"):
+            await websocket.send_text(status)
+        await websocket.send_text("new rules are available")
+        await websocket.close()
+
+    except Exception as e:
+        print("Error:", repr(e))
 
 @app.post("/NewDS")
-async def create_upload_file(file: UploadFile = File(...)):
-    print(f"Received file: {file.filename}, size: {file.file._file._st_size} bytes")
-    return {"filename": file.filename}
+async def newDS( file: UploadFile = File(...) ):
+    try:
+            #TODO: convert the file into pd.DataFrame
+        contents = await file.read()
+        df = pd.read_csv(io.StringIO(contents.decode('utf-8')), index_col=0)
 
+        #TODO: check columns 
+
+        c = 0
+        valid = True
+
+        required_columns = ['InvoiceNo', 'StockCode', 'Description', 'Quantity', 'InvoiceDate',
+        'UnitPrice', 'CustomerID', 'Country']
+        problems = []
+        # Check if all required columns are in the DataFrame
+        for column in required_columns:
+            if column not in df.columns:
+                problems.append(column)
+
+        # Check if the DataFrame has any extra columns
+        for column in df.columns:
+            if column not in required_columns:
+                problems.append(column)
+        
+        if len(problems) != 0:
+            raise Exception("the provided dataset is not accepted")
+        
+        #TODO: execute preprocessing and rules generation
+        # save the dataset as /data/original.csv
+        path = './data/original.csv'
+        print('writing df to csv')
+        # processing_status[client_id] = "writing df to csv"
+        df.to_csv(path)
+        # print('')
+        
+        # # processing_status["status"] = "running main"
+        # main(path)
+
+        return {"valid": valid, "problems": problems}
+    except Exception as e:
+       return {"status": "failure", "message": e, "extra": problems}
 
 
 @app.get("/get_products")
 def products():
-    products_ = json.load(open('../data/map_stockCode_item.json', 'r'))
+    products_ = json.load(open('./data/map_stockCode_item.json', 'r'))
     products = []
     for p in products_.keys():
         if not (products_[p] in products):

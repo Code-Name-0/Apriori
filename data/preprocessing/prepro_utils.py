@@ -60,7 +60,7 @@ def get_anon_transactions(dataset, time_interval):
         if reference_time is None:
             reference_time = {"h": hour, "m": minute}
         if hour == reference_time['h'] and (abs(minute - reference_time['m']) <= time_interval):
-            if len(transaction) == 50:
+            if len(transaction) == 20:
                 transactions.append(transaction)
                 transaction = [row['StockCode']]
                 reference_time = {"h": hour, "m": minute}

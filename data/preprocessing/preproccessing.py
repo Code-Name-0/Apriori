@@ -2,7 +2,7 @@ import pandas as pd
 from data.preprocessing.prepro_utils import remove_missing_description, conv_scode_desc, remove_neg_quan, get_sub_dataset, get_transactions, gen_transactions_csv, map_stock_codes, map_to_json
 
 def preprocessing(original_dataset_path, transactions_dataset_path, jsonmap_path, time_interval):
-    original = pd.read_excel(f'{original_dataset_path}')
+    original = pd.read_excel(original_dataset_path) if original_dataset_path.endswith('.xlsx') else pd.read_csv(original_dataset_path)
 
     remove_missing_description(dataset=original)
     conv_scode_desc(original)
