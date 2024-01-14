@@ -5,12 +5,17 @@ def preprocessing(original_dataset_path, transactions_dataset_path, jsonmap_path
     original = pd.read_excel(original_dataset_path) if original_dataset_path.endswith('.xlsx') else pd.read_csv(original_dataset_path)
 
     remove_missing_description(dataset=original)
+
     conv_scode_desc(original)
+
     remove_neg_quan(original)
+
     subset = get_sub_dataset(original, ['InvoiceNo', 'Quantity', 'UnitPrice', 'Country'])
     transactions = get_transactions(subset, time_interval=time_interval)
+
     gen_transactions_csv(transactions, transactions_dataset_path)
 
     mapping = map_stock_codes(subset)
     map_to_json(mapping, jsonmap_path)
+    
     print("finished prepro")

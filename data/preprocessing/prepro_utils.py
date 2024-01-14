@@ -17,12 +17,14 @@ def get_sub_dataset(dataset, columns_to_remove):
 
 def get_transactions(dataset, time_interval):
     transactions = []
+
     for _, customer_ in dataset.groupby('CustomerID'):
 
         transaction = []
         reference_time = None
 
         for _, row in customer_.iterrows():
+
             time = str(row['InvoiceDate']).split(' ')[1]
             hour = int(time[:2])
             minute = int(time[3:5])
@@ -46,13 +48,13 @@ def get_transactions(dataset, time_interval):
         transactions.append(transaction)
     return transactions
 
-
 def get_anon_transactions(dataset, time_interval):
     transactions = []
     reference_time = None
     transaction = []
+
     for _, row in dataset[dataset['CustomerID'].isna()].iterrows():
-        # for _, row in customer_.iterrows():
+
         time = str(row['InvoiceDate']).split(' ')[1]
         hour = int(time[:2])
         minute = int(time[3:5])
@@ -79,14 +81,14 @@ def gen_transactions_csv(transactions, path):
     apriory_df.to_csv(f'{path}', index=False)
     print('writen to',f'{path}')
 
-
 def map_stock_codes(dataset):
     mapping = []
+
     for code, row in dataset.groupby('StockCode'):
+
         mapping.append([code, row["Description"].iloc[0].strip()])
 
     return mapping
-
 
 def map_to_json(mapping, path):
     mapping_dict = {code: item for code, item in mapping}
@@ -94,4 +96,3 @@ def map_to_json(mapping, path):
     json_file = open(f'{path}', 'w')
     json_file.write(json_result)
     json_file.close()
-
