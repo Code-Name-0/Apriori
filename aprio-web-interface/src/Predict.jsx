@@ -38,7 +38,8 @@ const Predict = () => {
 
       useEffect(()=>{
         if(sample.length !== 0)
-          get_prediction(sample)
+          {setPredictionsPage(1)
+          get_prediction(sample)}
         else{
           setPredictions([])
         }
@@ -53,6 +54,9 @@ const Predict = () => {
     }
   }
 
+  const [predictionsPage, setPredictionsPage] = useState(1)
+
+  const predictionsPageSize = 5
 
     return ( 
         <div className="predict-container" >
@@ -73,9 +77,19 @@ const Predict = () => {
             </div>
             <div className="results-container">
                 {predictions && predictions.length !== 0 &&
-                  predictions.map((pred, index) => {
+                <>
+                
+
+                  {predictions.slice(predictionsPageSize*(predictionsPage - 1), predictionsPageSize*predictionsPage).map((pred, index) => {
                     return <Prediction key={index} prediction={pred}/>
-                  })
+                  })}
+                  <div className="suggs-btns">
+
+                  <button className="prev-btn" onClick={()=>{if (predictionsPage > 1) setPredictionsPage(predictionsPage - 1)}} >Previous</button>
+                  <h3>{predictionsPage}</h3>
+                  <button className="next-btn" onClick={()=>{if (predictionsPage < 50) setPredictionsPage(predictionsPage + 1)}} >Next</button>
+                  </div>
+                </>
                 }
 
                 {predictions && sample.length !== 0 && predictions.length == 0 &&
@@ -97,6 +111,7 @@ export default Predict;
 const Prediction = ({prediction}) => {
   return (
     <div className="prediction-container">
+      
       {prediction.consequent.split(', ').map((cons, index) => {
         return <div key={index} className="pred">
           <div className="cons">
