@@ -1,8 +1,6 @@
 import axios from "axios";
 import { api } from "./env";
 import { useEffect, useState } from "react";
-import Select from 'react-select';
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
 
 const Predict = () => {

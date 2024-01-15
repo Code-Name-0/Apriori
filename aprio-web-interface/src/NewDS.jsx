@@ -23,7 +23,7 @@ const NewDS = () => {
         // Trigger the file input click when the image is clicked
         fileInputRef.current.click();
       };
-      const accepted_formats = ['csv', 'xlsx']
+      const accepted_formats = ['csv']
       useEffect(()=>{
         if (file){
 
@@ -32,7 +32,7 @@ const NewDS = () => {
             if(accepted_formats.includes(file.name.split('.')[1])){
                 setStage('submit')
             }else{
-                setError("please upload a csv or an xlsx file")
+                setError("please upload a csv file")
                 setTimeout(()=> {
                     setError(null)
                 }, 3000)
@@ -59,6 +59,7 @@ const NewDS = () => {
         ws.onopen = () => {
             console.log("WebSocket is open now.");
             console.log('sending start signal to socket in 2 seconds');
+            
             setTimeout(() => {
                 ws.send('start')
             }, 2000);
@@ -79,6 +80,7 @@ const NewDS = () => {
         const formData = new FormData();
   formData.append('file', file);
   try {
+    setStatus('Uploading...')
 
     const response = await axios.post(api+'NewDS', formData, {
       headers: {
@@ -158,7 +160,7 @@ const NewDS = () => {
                             </ul>
                         </div>
                         <div> Filename: <b>{file.name}</b></div>
-                        <div>File Size: <b>{(file.size / (1024)).toFixed(4)} mb</b></div>
+                        <div>File Size: <b>{(file.size / (1024 * 1024)).toFixed(4)} mb</b></div>
                     </div>
                     <div className="submit">
                         <button className="submit-btn" onClick={
