@@ -77,6 +77,13 @@ const Predict = () => {
                     return <Prediction key={index} prediction={pred}/>
                   })
                 }
+
+                {predictions && sample.length !== 0 && predictions.length == 0 &&
+                  <>
+                    <h3>Oops! it looks like there is no information about this basket!</h3>
+                    <h3>Feel free to upload a new dataset to train the model again and add new rules to the database</h3>
+                  </>
+                }
             </div>
             {/* <h1>Predict Page</h1>
             

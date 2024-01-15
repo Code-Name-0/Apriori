@@ -90,6 +90,13 @@ const NewDS = () => {
     if(response.data.valid){
         console.log("okay, open socket now")
         open_sock()
+    }else{
+        setError("Features mismatch, please make sure the dataset is following the needed structure")
+        setTimeout(()=>{
+            setError(null)
+            setFile(null)
+            setStage('upload')
+        }, 3000)
     }
   } catch (error) {
     if (error.response) {
@@ -137,6 +144,19 @@ const NewDS = () => {
                 !error && stage === "submit"  &&
                 <div className="submit-container">
                     <div className="info">
+                        <div className="note">
+                            <h4>IMPORTANT! make sure the dataset file contains the following features:</h4>
+                            <ul className="features_list">
+                                <li>InvoiceNo</li>
+                                <li>StockCode</li>
+                                <li>Description</li>
+                                <li>Quantity</li>
+                                <li>InvoiceDate</li>
+                                <li>UnitPrice</li>
+                                <li>CustomerID</li>
+                                <li>Country</li>
+                            </ul>
+                        </div>
                         <div> Filename: <b>{file.name}</b></div>
                         <div>File Size: <b>{(file.size / (1024)).toFixed(4)} mb</b></div>
                     </div>

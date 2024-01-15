@@ -24,8 +24,7 @@ class Body(BaseModel):
 class Sample(BaseModel):
     sample: list
 
-class NewDS(BaseModel):
-    dataset: UploadFile = File(...)
+
 
 @app.get("/dummy_get")
 def hello(name: str):
@@ -71,9 +70,8 @@ async def websocket_endpoint(websocket: WebSocket):
         print("Error:", repr(e))
 
 @app.post("/NewDS")
-async def newDS( payload: UploadFile = File(...) ):
+async def newDS( file: UploadFile = File(...) ):
     try:
-        file = payload.dataset
         contents = await file.read()
 
         df = pd.read_csv(io.StringIO(contents.decode('utf-8')), index_col=0)

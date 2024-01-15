@@ -262,12 +262,12 @@
 
 .submit-container{
     width: 80vw;
-    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     height: 50vh;
+    gap: 2rem;
     
 }
 
@@ -277,8 +277,17 @@
     align-items: flex-start;
     
     justify-content: space-evenly;
-    height: 10rem;
-    
+    gap: 1rem
+}
+
+.submit-container .note{
+    background-color: #ff4e4ea9;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.features_list{
+    list-style: none;
 }
 
 .submit .submit-btn{

@@ -1,34 +1,56 @@
 import json
-import re
+import pandas as pd
+import os
+
 
 def map_rules(rules):
-    mapping = open("../map_stockCode_item.json", "r").read()
-    key = '90202A'
-    index = mapping.find(key)
-    for rule in rules:
+    mapping = open("../map_stockCode_item.json", "r")
+    json_map = json.load(mapping)
+    
+    cp_rules = rules.copy()
+    mapped_rules = []
+    for rule in cp_rules:
         ant = []
         for item in rule['antecedent']:
-            index = mapping.find(item)
-            text = mapping[index:].split('\n')[0]
-            pattern = r': "(.*?)"'
-            match = re.search(pattern, text)
-            if match:            
-                ant.append(match.group(1).strip())
+            ant.append(json_map[item])
 
         cons = []
         for item in rule['consequent']:
-            index = mapping.find(item)
-            text = mapping[index:].split('\n')[0]
-            pattern = r': "(.*?)"'
-            match = re.search(pattern, text) 
-            if match:
-                cons.append(match.group(1).strip())
+            cons.append(json_map[item])
+
+        obj = {'antecedent': ', '.join(ant), 'consequent': ', '.join(cons), 'confidence': rule['confidence'], 'lift': rule['lift']}
+        mapped_rules.append(obj)
+
+    return mapped_rules
+
+# def map_rules(rules):
+#     mapping = open("../map_stockCode_item.json", "r").read()
+#     key = '90202A'
+#     index = mapping.find(key)
+#     for rule in rules:
+#         ant = []
+#         for item in rule['antecedent']:
+#             index = mapping.find(item)
+#             text = mapping[index:].split('\n')[0]
+#             pattern = r': "(.*?)"'
+#             match = re.search(pattern, text)
+#             if match:            
+#                 ant.append(match.group(1).strip())
+
+#         cons = []
+#         for item in rule['consequent']:
+#             index = mapping.find(item)
+#             text = mapping[index:].split('\n')[0]
+#             pattern = r': "(.*?)"'
+#             match = re.search(pattern, text) 
+#             if match:
+#                 cons.append(match.group(1).strip())
            
 
-        rule['antecedent'] = ant
-        rule['consequent'] = cons
+#         rule['antecedent'] = ant
+#         rule['consequent'] = cons
 
-    return rules
+#     return rules
 
 def rules_to_json(rules, path):   
 
@@ -36,30 +58,52 @@ def rules_to_json(rules, path):
         return {key: value for key, value in dictionary.items() if key in fields_to_keep}
 
     filtered_data = [filter_fields(item, ['antecedent', 'consequent', 'lift', 'confidence']) for item in rules]
-
-    json_data = json.dumps(filtered_data, indent=2)
-    with open(f'{path}/rules.json', 'w') as json_file:
-        json_file.write(json_data)
-        json_file.close()
-        print("successfully wrote results.")
+    file_path = f'{path}/rules.json'
     
+    if os.path.exists(file_path):
+        with open(f'{path}/rules.json', 'r') as json_file:
+            existing_data = json.load(json_file)
+
+        existing_data.extend(filtered_data)
+    else:
+        existing_data=filtered_data
+
+    existing_data = clean_rules(existing_data)
+
+    with open(file_path, 'w') as json_file:
+        json.dump(existing_data, json_file, indent=2)
+
+    print("successfully wrote results.")
 
 def rules_to_markdown(rules, path):
-    rules_file = open(f'{path}/rules.md', 'w')
-    line = f"<ol>\n\n"
-    for rule in rules:
-        line += f"<li>"
-        for ant in rule['antecedent']:
-            line += f"{ant}     "
+    with open(f'{path}/rules.md', 'rw') as rules_file:
+        line = f"<ol>\n\n"
+        for rule in rules:
+            line += f"<li>"
+            for ant in rule['antecedent'].split(', '):
+                line += f"{ant}     "
+            
+            line += f"========>     "
+            for cons in rule['consequent'].split(', '):
+                line += f"{cons}          "
+            line += f"</li>\n"
+        line += f"\n</ol>"
         
-        line += f"========>     "
-        for cons in rule['consequent']:
-            line += f"{cons}          "
-        line += f"</li>\n"
-    line += f"\n</ol>"
-    rules_file.write(line)
+        rules_file.write(line)
 
-    rules_file.close()
+    print("successfully wrote results.")
+
+def rules_to_csv(rules, path):
+        file_path = f"{path}/s6_c02_t3_m30.csv"
+        
+        if os.path.exists(file_path):
+            existing_rules = pd.read_csv(file_path).to_dict('records')
+            rules.extend(existing_rules)
+            
+        rules = clean_rules(rules)
+        pd.DataFrame(rules).to_csv(file_path, index=False)
+
+
 
 def predict():
     print("predicing")

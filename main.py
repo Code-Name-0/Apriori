@@ -1,9 +1,7 @@
 import pandas as pd
 from models.aprio import Aprio
-from utils import map_rules, rules_to_json, rules_to_markdown, clean_rules
-from data.preprocessing import preprocessing
-from data.preprocessing.prepro_utils import remove_missing_description, conv_scode_desc, remove_neg_quan, get_sub_dataset, get_transactions, gen_transactions_csv, map_stock_codes, map_to_json
-
+from utils import map_rules, rules_to_json, rules_to_csv, clean_rules
+from data.preprocessing.preprocessing import preprocessing
 
 def main(original_ds_path):
 
@@ -14,16 +12,15 @@ def main(original_ds_path):
     dataset = pd.read_csv('./data/transactions.csv')
 
     yield "running apriori algorithm..."
-    aprio = Aprio(dataset[:500], 5, 0.4)
+    aprio = Aprio(dataset[:300], 6, 0.2)
 
     yield "mapping to items and cleanig rules..."
     rules = clean_rules(map_rules(aprio.rules))
     
-    yield "writing to file..."
-    rules_to_markdown(rules, "./results")
+    yield "writing rules to files..."
     rules_to_json(rules, "./results")
+    rules_to_csv(rules, "./results")
 
 if __name__ == "__main__":
     for result in main('./data/original.csv'):
-        
         print(result)
